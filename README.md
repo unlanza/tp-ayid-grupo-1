@@ -1,11 +1,38 @@
 # tp-ayid-grupo-1
 > Repositorio para info relacionada al TP de Análisis de la la Información y la Decisión - Grupo 1
 
+## LO MÁS IMPORTANTE - LEER AQUÍ PRIMERO
+### ✏ Definición del trabajo
 La solución final, además de incluir la presentación, debe mostrar:
 1. **Una instancia de PowerBI** funcional conectada a una base de datos.
 2. **Una base de datos** a la que PowerBI se conecte.
 
 ![Diagrama](recursos/Diagrama_solucion.jpg)
+
+### ⭐ Modelo estrella de datos
+![Diagrama](recursos/Modelo_Estrella_-_TP_Data_Warehouse.png)
+
+### 📈 PowerBI
+Para descargarlo, descargue el archivo:
+```
+https://github.com/unlanza/tp-ayid-grupo-1/blob/main/Tablero_Prueba.pbix
+```
+
+En este PowerBI debes poder acceder y trabajar con los siguientes datos:
+
+![Diagrama](recursos/Datos_Disponibles_En_Tablero_09_21.png)
+
+### `.xlsx` Excel más reciente
+
+Para descargarlo, descargue el archivo `TP DW - Excel completo (21-09-2024).xlsm`:
+```
+https://github.com/unlanza/tp-ayid-grupo-1/blob/main/dataset
+```
+
+### 🐳 Instrucciones a Despliegue en entorno de desarrollo.
+
+En el presente `README.md` en la [sección](https://github.com/unlanza/tp-ayid-grupo-1/blob/main/README.md#-instalaci%C3%B3n-y-herramientas-de-trabajo-local) "🔽 Instalación y herramientas de trabajo local".
+
 
 ## 🔽 Instalación y herramientas de trabajo local
 Para cumplir con los requerimientos de la evaluación esta instancia debe tener una conexión activa con el servidor de base de datos que alimenta al modelo.
@@ -15,7 +42,7 @@ Para cumplir con los requerimientos de la evaluación esta instancia debe tener 
     1. Si tienen Windows puede ser a través de la Microsoft Store (instalada en Windows) o con el instalador descargada de la página oficial de Microsoft.
     2. Si tienen Mac a través del instalador descargándolo de la página oficial  Microsoft.
 2. Importar dataset a PowerBI.
-    1. Opción 1: para trabajar ligeramente (sin instalar nada más) se puede importar directamente desde los `.csv` | `.xlsx` presentes en este repo en `.\dataset\tabla_*` como lo vimos en clases (**TODAVÍA NO ESTÁN CARGADOS**).
+    1. Opción 1: para trabajar ligeramente (sin instalar nada más) se puede importar directamente desde los `.csv` | `.xlsx` presentes en este repo en `.\dataset\*` como lo vimos en clases (**ACTUALIZADOS POR ULTIMA VEZ: 21 DE SEPTIEMBRE DE 2024**).
     2. Opción 2: para trabajar con una BB. DD. seguir los pasos de la siguiente sección.
 
 ### Pasos para trabajar con PowerBI x BB. DD. (**Lo que es necesario hacer para mostrar en la presentación**)
