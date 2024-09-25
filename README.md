@@ -10,7 +10,7 @@ La solución final, además de incluir la presentación, debe mostrar:
 ![Diagrama](recursos/Diagrama_solucion.jpg)
 
 ### ⭐ Modelo estrella de datos
-![Diagrama](recursos/Modelo_Estrella_-_TP_Data_Warehouse.png)
+![Diagrama](recursos/Modelo_Estrella_PowerBI_final.png)
 
 ### 📈 PowerBI
 Para descargarlo, descargue el archivo:
