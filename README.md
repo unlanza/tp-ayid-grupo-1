@@ -3,9 +3,10 @@
 
 ## LO MÁS IMPORTANTE - LEER AQUÍ PRIMERO
 ### ✏ Definición del trabajo
-La solución final, además de incluir la presentación, debe mostrar:
-1. **Una instancia de PowerBI** funcional conectada a una base de datos.
-2. **Una base de datos** a la que PowerBI se conecte.
+La solución final debe incluir:
+1. [Presentación](https://github.com/unlanza/tp-ayid-grupo-1/blob/main/Presentacion_TP_Data_Warehouse_-_AIyD.pdf).
+2. **Una instancia de PowerBI** funcional conectada a una base de datos.
+3. **Una base de datos** que alimente de datos el tablero de PowerBI.
 
 ![Diagrama](recursos/Diagrama_solucion.jpg)
 
@@ -20,19 +21,21 @@ https://github.com/unlanza/tp-ayid-grupo-1/blob/main/Tablero_Prueba.pbix
 
 En este PowerBI debes poder acceder y trabajar con los siguientes datos:
 
-![Diagrama](recursos/Datos_Disponibles_En_Tablero_09_21.png)
+![Diagrama](recursos/Datos_Disponibles_En_Tablero_09_25.png)
 
 ### `.xlsx` Excel más reciente
 
-Para descargarlo, descargue el archivo `TP DW - Excel completo (21-09-2024).xlsm`:
+Para descargarlo, descargue el archivo `TP DW - Excel completo (25-09-2024).xlsx`:
 ```
 https://github.com/unlanza/tp-ayid-grupo-1/blob/main/dataset
 ```
 
-### 🐳 Instrucciones a Despliegue en entorno de desarrollo.
+### `.sql` Base de datos
 
-En el presente `README.md` en la [sección](https://github.com/unlanza/tp-ayid-grupo-1/blob/main/README.md#-instalaci%C3%B3n-y-herramientas-de-trabajo-local) "🔽 Instalación y herramientas de trabajo local".
-
+Para crear la BB. DD. tenga un servidor PostgreSQL ejecutando correctamente (ver [sección](https://github.com/unlanza/tp-ayid-grupo-1/blob/main/README.md#-instalaci%C3%B3n-y-herramientas-de-trabajo-local) "🔽 Instalación y herramientas de trabajo local"), luego descargue y ejecute el archivo `cicba-db.sql`:
+```
+https://github.com/unlanza/tp-ayid-grupo-1/blob/main/cicba-db.sql
+```
 
 ## 🔽 Instalación y herramientas de trabajo local
 Para cumplir con los requerimientos de la evaluación esta instancia debe tener una conexión activa con el servidor de base de datos que alimenta al modelo.
@@ -42,7 +45,7 @@ Para cumplir con los requerimientos de la evaluación esta instancia debe tener 
     1. Si tienen Windows puede ser a través de la Microsoft Store (instalada en Windows) o con el instalador descargada de la página oficial de Microsoft.
     2. Si tienen Mac a través del instalador descargándolo de la página oficial  Microsoft.
 2. Importar dataset a PowerBI.
-    1. Opción 1: para trabajar ligeramente (sin instalar nada más) se puede importar directamente desde los `.csv` | `.xlsx` presentes en este repo en `.\dataset\*` como lo vimos en clases (**ACTUALIZADOS POR ULTIMA VEZ: 21 DE SEPTIEMBRE DE 2024**).
+    1. Opción 1: para trabajar ligeramente (sin instalar nada más) se puede importar directamente desde los `.csv` | `.xlsx` presentes en este repo en `.\dataset\*` como lo vimos en clases (**ACTUALIZADOS POR ULTIMA VEZ: 25 DE SEPTIEMBRE DE 2024**).
     2. Opción 2: para trabajar con una BB. DD. seguir los pasos de la siguiente sección.
 
 ### Pasos para trabajar con PowerBI x BB. DD. (**Lo que es necesario hacer para mostrar en la presentación**)
@@ -74,13 +77,13 @@ docker run --name bd_postgres_tp -e POSTGRES_PASSWORD=docker_user -e POSTGRES_US
 4.  Cualquier cliente (visualizador) de BB.DD. preparado para conectarse con un servidor PostgreSQL que tengan les debería permitir acceder a la misma, yo usé HeidiSQL (lo pueden instalar a su máquina [desde aquí](https://www.heidisql.com/download.php)) y manipularla con el usuario "docker_user" y la contraseña "docker_user" (las definimos cuando corrimos la instancia de Docker).
     1. Para operar correctamente debemos conectarnos a la BB. DD. por default que nos expone PostgreSQL, debemos hacerlo carganos la info más o menos así:
     ![Diagrama](recursos/ejemplo_conexion_heidisql.png)
-    2. Luego creamos una BB. DD. para trabajar ejecutando (o creando a través de la interfaz de usuario) **otra** BB. DD. con un nombre como "csv_import_db".
+    2. Luego creamos una BB. DD. para trabajar ejecutando (o creando a través de la interfaz de usuario) **otra** BB. DD. con un nombre como, por ej., "*csv_import_db*".
     3. Ahora nos **desconectamos** de la conexión que teníamos para hacerlo directmente sobre la BB. DD. creada. Dejo otro ejemplo de cómo queda (usuario y contraseña quedan iguales):
     ![Diagrama](recursos/ejemplo_conexion_heidisql_csv_db.png)
     
 
-5. Ahora sí, importamos los datos desde excel con la herramienta de importación de CSV provista por HeidiSQL, se puede encontrar en la parte superior de la app en la solapa "Herramientas". Les dejo unos comentarios sobre cómo lograrlo:
-    * Por cada tabla en el modelo estrella hacer una importación diferente (una por cada archivo CSV).
+5. Ahora sí, importamos los datos desde un `.sql` o desde `.csv`con la herramienta de importación CSV provista por HeidiSQL, se puede encontrar en la parte superior de la app en la solapa "Herramientas". Les dejo unos comentarios sobre cómo lograrlo:
+    * Por cada tabla en el modelo estrella hacer una importación diferente (una por cada archivo CSV) a cada tabla que corresponda.
 
 6. Una vez estén cargados los datos, ahora sí podemos importarlos desde PowerBI a través de la herramienta de importación de datos. A continuación les dejo un paso a paso para configurar correctamente la importación.
 

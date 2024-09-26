@@ -1,58 +1,62 @@
 /* Crear tablas */
-CREATE TABLE "public"."fact_delitos" (
-	"id" SERIAL PRIMARY KEY,
-	"id_tiempo" INT NOT NULL,
-	"id_tipo" INT NOT NULL,
-	"id_subtipo" INT NOT NULL,
-	"id_ubicacion" INT NOT NULL,
-	"ds_uso_arma" VARCHAR(2) NOT NULL,
-	"ds_uso_moto" VARCHAR(2) NOT NULL,
-	"cantidad" INT NOT NULL
+DROP TABLE IF EXISTS "public"."FACT_DELITOS";
+DROP TABLE IF EXISTS "public"."DIM_TIEMPO";
+DROP TABLE IF EXISTS "public"."DIM_TIPO";
+DROP TABLE IF EXISTS "public"."DIM_SUBTIPO";
+DROP TABLE IF EXISTS "public"."DIM_UBICACION";
+
+CREATE TABLE "public"."FACT_DELITOS" (
+	"ID_TIEMPO" INT NOT NULL,
+	"ID_TIPO" INT NOT NULL,
+	"ID_SUBTIPO" INT NOT NULL,
+	"ID_UBICACION" INT NOT NULL,
+	"DS_USO_ARMA" VARCHAR(2) NOT NULL,
+	"DS_USO_MOTO" VARCHAR(2) NOT NULL,
+	"CANTIDAD" INT NOT NULL
 );
 
-CREATE TABLE "public"."dim_tiempo" (
-	"id" SERIAL PRIMARY KEY,
-	"anio" INT NOT NULL,
-	"id_mes" INT NOT NULL,
-	"ds_mes" VARCHAR(50) NOT NULL,
-	"id_dia_semana" INT NOT NULL,
-	"ds_dia_semana" VARCHAR(50) NOT NULL,
-	"dia_mes" INT NOT NULL,
-	"horario" INT NOT NULL
+CREATE TABLE "public"."DIM_TIEMPO" (
+	"ID" SERIAL PRIMARY KEY,
+	"ANIO" INT NOT NULL,
+	"ID_MES" INT NOT NULL,
+	"DS_MES" VARCHAR(50) NOT NULL,
+	"ID_DIA_SEMANA" INT NOT NULL,
+	"DS_DIA_SEMANA" VARCHAR(50) NOT NULL,
+	"DIA_MES" INT NOT NULL,
+	"HORARIO" INT NOT NULL
 );
 
-CREATE TABLE "public"."dim_tipo" (
-	"id_tipo" SERIAL PRIMARY KEY,
-	"ds_tipo" VARCHAR(50) NOT NULL
+CREATE TABLE "public"."DIM_TIPO" (
+	"ID_TIPO" SERIAL PRIMARY KEY,
+	"DS_TIPO" VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE "public"."dim_subtipo" (
-	"id_subtipo" SERIAL PRIMARY KEY,
-	"ds_subtipo" VARCHAR(50) NOT NULL
+CREATE TABLE "public"."DIM_SUBTIPO" (
+	"ID_SUBTIPO" SERIAL PRIMARY KEY,
+	"DS_SUBTIPO" VARCHAR(50) NOT NULL
 );
 
-CREATE TABLE "public"."dim_ubicacion" (
-	"id_ubicacion" SERIAL PRIMARY KEY,
-	"ds_barrio" VARCHAR(100) NOT NULL,
-	"ds_ciudad_barrio" VARCHAR(100) NOT NULL,
-	"id_comuna" INT NOT NULL,
-	"ds_comuna" VARCHAR(100) NOT NULL
+CREATE TABLE "public"."DIM_UBICACION" (
+	"ID_UBICACION" SERIAL PRIMARY KEY,
+	"DS_BARRIO" VARCHAR(100) NOT NULL,
+	"DS_CIUDAD_BARRIO" VARCHAR(100) NOT NULL,
+	"ID_COMUNA" INT NOT NULL,
+	"DS_COMUNA" VARCHAR(100) NOT NULL
 );
 
 /* Establecer relaciones entre la Fact y las dimensiones*/
-ALTER TABLE "public"."fact_delitos"
-ADD CONSTRAINT fk_fact_delitos_id_tiempo
-FOREIGN KEY ("id_tiempo") REFERENCES "public"."dim_tiempo" ("id");
+ALTER TABLE "public"."FACT_DELITOS"
+ADD CONSTRAINT FK_FACT_DELITOS_ID_TIEMPO
+FOREIGN KEY ("ID_TIEMPO") REFERENCES "public"."DIM_TIEMPO" ("ID");
 
-ALTER TABLE "public"."fact_delitos"
-ADD CONSTRAINT fk_fact_delitos_id_tipo
-FOREIGN KEY ("id_tipo") REFERENCES "public"."dim_tipo" ("id_tipo");
+ALTER TABLE "public"."FACT_DELITOS"
+ADD CONSTRAINT FK_FACT_DELITOS_ID_TIPO
+FOREIGN KEY ("ID_TIPO") REFERENCES "public"."DIM_TIPO" ("ID_TIPO");
 
-ALTER TABLE "public"."fact_delitos"
-ADD CONSTRAINT fk_fact_delitos_id_subtipo
-FOREIGN KEY ("id_subtipo") REFERENCES "public"."dim_subtipo" ("id_subtipo");
+ALTER TABLE "public"."FACT_DELITOS"
+ADD CONSTRAINT FK_FACT_DELITOS_ID_SUBTIPO
+FOREIGN KEY ("ID_SUBTIPO") REFERENCES "public"."DIM_SUBTIPO" ("ID_SUBTIPO");
 
-ALTER TABLE "public"."fact_delitos"
-ADD CONSTRAINT fk_fact_delitos_id_ubicacion
-FOREIGN KEY ("id_ubicacion") REFERENCES "public"."dim_ubicacion" ("id_ubicacion");
-
+ALTER TABLE "public"."FACT_DELITOS"
+ADD CONSTRAINT FK_FACT_DELITOS_ID_UBICACION
+FOREIGN KEY ("ID_UBICACION") REFERENCES "public"."DIM_UBICACION" ("ID_UBICACION");
